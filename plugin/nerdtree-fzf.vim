@@ -20,8 +20,8 @@ let g:loaded_nerdtree_ag_fzf = 1
 
 " add the new menu item via NERD_Tree's API
 call NERDTreeAddMenuItem({
-    \ 'text': '(s)earch in the directory',
-    \ 'shortcut': 's',
+    \ 'text': '(g)rep in the directory',
+    \ 'shortcut': 'g',
     \ 'callback': 'NERDTreeFzf' })
 
 " in comparison to the original Rg, there's no shellescape()
@@ -45,6 +45,9 @@ function! NERDTreeFzf()
         echo 'Maybe another time...'
         return
     endif
+
+    " display first result in the last window
+    wincmd w
 
     exec "Rg '".pattern."' ".dir
 endfunction
