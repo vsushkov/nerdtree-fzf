@@ -27,7 +27,7 @@ call NERDTreeAddMenuItem({
 " in comparison to the original Rg, there's no shellescape()
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.<q-args>, 1,
+  \   'rg --column --line-number --no-heading --color=always --sort --smart-case -- '.<q-args>, 1,
   \   fzf#vim#with_preview(), <bang>0)
 
 function! NERDTreeFzf()
